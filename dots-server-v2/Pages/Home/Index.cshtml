@@ -1,0 +1,212 @@
+@page "/"
+@model dots_server_v2.Pages.Home.IndexPageModel
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+
+<header class="bg-gradient" id="home">
+    <div class="container mt-5">
+        <h1>...Dots</h1>
+        <p class="tagline">Package Manager for .Dotfiles <br>Easiest way to distribute your desktop rice <br> </p>
+    </div>
+    <div class="img-holder mt-3"><img src="~/images/dots-ss2.png" alt="phone" class="img-fluid"></div>
+</header>
+
+<!-- <div class="client-logos my-5">
+    <div class="container text-center">
+        <img src="images/client-logos.png" alt="client logos" class="img-fluid">
+    </div>
+</div> -->
+
+<div class="section light-bg" id="features">
+    <div class="container">
+
+        <div class="section-title">
+            <small>HIGHLIGHTS</small>
+            <h3>Features we all love</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span class="ti-package gradient-fill ti-3x mr-3"></span>
+                            <div class="media-body">
+                                <h4 class="card-title">Create Packages</h4>
+                                <p class="card-text">
+                                    - Create new packages <br>
+                                    - Choose whatever you want from list of apps <br>
+                                    - Add <strong>wallpapers</strong> to your package
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span class="ti-share gradient-fill ti-3x mr-3"></span>
+                            <div class="media-body">
+                                <h4 class="card-title">Share your package</h4>
+                                <p class="card-text">
+                                    - Make archive out of your package <br>
+                                    - Add remote addresses to share <br>
+                                    - Push to registry of your choice
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span class="ti-download gradient-fill ti-3x mr-3"></span>
+                            <div class="media-body">
+                                <h4 class="card-title">Install packages</h4>
+                                <p class="card-text">
+                                    - <strong>Download</strong> package from gallery <br>
+                                    - <strong>Install</strong> if you like it <br>
+                                    - <strong>Revert</strong> to original if you don't like it!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // end .section -->
+
+<div class="section light-bg" id="popular">
+    <div class="section pt-0" style="margin-top: 20px">
+        <div class="container">
+            <div class="section-title">
+                <h3>Popular packages</h3>
+            </div>
+            
+            <div class="row pt-4">
+                @* Splide thing *@
+                <div class="splide">
+                	<div class="splide__track">
+                		<ul class="splide__list">
+                			@foreach (var package in Model.PopularPackages)
+			                {
+			                    <li class="splide__slide">
+                                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F1d75%2Ff%2F2009%2F220%2Fb%2F0%2Fspongebob_4_150x150_png_by_somemilk.png&f=1&nofb=1" alt="img">
+                                </li>
+			                }
+                		</ul>
+                	</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+    	document.addEventListener( 'DOMContentLoaded', function () {
+            new Splide( '.splide' ).mount();
+        });
+    </script>
+}
+
+<div class="section light-bg" id="faq">
+    <div class="section pt-0" style="margin-top: 20px;">
+        <div class="container">
+            <div class="section-title">
+                <small>FAQ</small>
+                <h3>Frequently Asked Questions</h3>
+            </div>
+    
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <h4 class="mb-3">How can I contribute to roject?</h4>
+                    <p class="light-font mb-5">It is very easy. You should just go to the 
+                        <a href="https://github.com/alvanrahimli/dots-cli">GitHub Repository</a> and look for issues. Any help is appreciated</p>
+                    <h4 class="mb-3">How can I install app?</h4>
+                    <p class="light-font mb-5">To install tool you must go to <a href="https://github.com/alvanrahimli/dots-cli">GitHub Repository</a>
+                        and follow Installation guide at README.md <br>
+                        It takes only 2 minutes!
+                    </p>
+    
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">Are there any dependencies?</h4>
+                    <p class="light-font mb-5">No! <br>
+                        Git or any Version Control System <strong>is not</strong> required.
+                    </p>
+                    <h4 class="mb-3">How can I host my own registry?</h4>
+                    <p class="light-font mb-5">
+                        To host your own registry, please go to <a href="https://github.com/alvanrahimli/dots-server">dots-server GitHub Repository</a>
+                        and follow Installatin guide there. Dots-Server is distributed as Docker image and executable. (Docker image is more convenient)
+                    </p>
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<!-- // end .section -->
+
+<div class="section bg-gradient">
+    <div class="container">
+        <div class="call-to-action">
+
+            <!-- <div class="box-icon"><span class="ti-desktop gradient-fill ti-3x"></span></div> -->
+            <h2>Download From</h2>
+            <p class="tagline">We will be distributing app from all major distro repositories soon. </p>
+            <div class="my-4">
+
+                <a href="https://github.com/alvanrahimli/dots-cli" target="_blank" class="btn btn-light">
+                    <img src="~/images/githubicon.png" width="20" height="20" alt="icon"> GitHub
+                </a>
+                <!-- <a href="#" class="btn btn-light"><img src="images/playicon.png" alt="icon"> SnapCraft</a>
+                <a href="#" class="btn btn-light"><img src="images/playicon.png" alt="icon"> FlatHub</a> -->
+            </div>
+            <p class="text-primary"><small><i>*Works on all POSIX compliant Operating Systems </i></small></p>
+        </div>
+    </div>
+
+</div>
+<!-- // end .section -->
+
+<div class="light-bg py-5" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-left">
+                <!-- <p class="mb-2"> <span class="ti-location-pin mr-2"></span> 1485 Pacific St, Brooklyn, NY 11216 USA</p> -->
+                <div class=" d-block d-sm-inline-block">
+                    <p class="mb-2">
+                        <span class="ti-email mr-2"></span> <a class="mr-4"
+                                                               href="mailto:alvan@rahim.li">alvan@rahim.li</a>
+                    </p>
+                </div>
+                <div class="d-block d-sm-inline-block">
+                    <p class="mb-0">
+                        <!-- <span class="ti-headphone-alt mr-2"></span> <a href="tel:51836362800">518-3636-2800</a> -->
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="social-icons">
+                    <a href="https://github.com/alvanrahimli/dots-cli"><span class="ti-github"></span></a>
+                    <!-- <a href="#"><span class="ti-snap"></span></a> -->
+                    <!-- <a href="#"><span class="ti-instagram"></span></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
