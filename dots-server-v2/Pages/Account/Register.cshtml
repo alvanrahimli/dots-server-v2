@@ -1,0 +1,75 @@
+@page "/account"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model dots_server_v2.Pages.Account.RegisterPageModel
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<header class="bg-gradient" id="home">
+    <div class="container mt-5">
+        <h1>Register</h1>
+
+        <form method="post" class="register-form">
+            
+            <div class="form-group">
+                <input type="text" class="form-control" id="name"
+                       placeholder="Enter username" asp-for="NewUser.UserName">
+            </div>
+            @if (!Model.RegisterSuccess)
+            {
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email"
+                           placeholder="Enter email" asp-for="NewUser.Email">
+                </div>
+            }
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass"
+                       placeholder="Enter password" asp-for="NewUser.Password">
+            </div>
+            @if (!Model.RegisterSuccess)
+            {
+                <button type="submit" class="btn btn-primary" style="font-size: larger;" id="btn-register"
+                        asp-page-handler="Register" disabled="@Model.RegisterSuccess">
+                    @if (Model.RegisterSuccess)
+                    {
+                        <span>@Model.UiMessage</span>
+                    }
+                    else
+                    {
+                        <span>@Model.UiMessage</span>
+                    }
+                </button>
+            }
+            @if (Model.RegisterSuccess)
+            {
+                <button type="submit" class="btn btn-primary" style="font-size: larger;" id="btn-login"
+                        asp-page-handler="Login" disabled="@Model.RegisterSuccess">
+                    Login
+                </button>
+            }
+        </form>
+    </div>
+    <div style="height: 100%">
+        
+    </div>
+</header>
+
+@section Scripts
+{
+    <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        setInterval(() => {
+            document.getElementById("btn-register").textContent = "SUBMIT";
+        }, 3000)
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        setInterval(() => {
+            document.getElementById("btn-login").textContent = "SUBMIT";
+        }, 3000)
+    });
+    
+    </script>
+}

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="~/css/splide.min.css">
     <link rel="stylesheet" href="~/css/splide-default.min.css">
     @* <link rel="stylesheet" href="~/css/splide-core.min.css"> *@
+    <link rel="stylesheet" href="~/css/custom.css">
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
@@ -88,7 +89,7 @@
 <script src="~/js/script.js"></script>
 <script src="~/js/splide.min.js"></script>
 
-@await RenderSectionAsync("Scripts")
+@await RenderSectionAsync("Scripts", false)
 
 </body>
 
