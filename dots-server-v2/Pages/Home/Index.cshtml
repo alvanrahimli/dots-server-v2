@@ -87,7 +87,7 @@
 
 <div class="section light-bg" id="popular">
     <div class="section pt-0" style="margin-top: 20px">
-        <div class="container">
+        <div class="container" style="">
             <div class="section-title">
                 <h3>Popular packages</h3>
             </div>
@@ -100,7 +100,8 @@
                 			@foreach (var package in Model.PopularPackages)
 			                {
 			                    <li class="splide__slide">
-                                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F1d75%2Ff%2F2009%2F220%2Fb%2F0%2Fspongebob_4_150x150_png_by_somemilk.png&f=1&nofb=1" alt="img">
+                                    <p>@package.Name</p>
+                                    <img src="@package.Screenshots.First().ImagePath" alt="img">
                                 </li>
 			                }
                 		</ul>
@@ -115,8 +116,15 @@
 @section Scripts
 {
     <script>
-    	document.addEventListener( 'DOMContentLoaded', function () {
-            new Splide( '.splide' ).mount();
+    	document.addEventListener('DOMContentLoaded', function () {
+    	    new Splide('.splide', {
+                type   : 'loop',
+                perPage: 3,
+                perMove: 1,
+                cover: true,
+                width: '100%',
+                height: 300
+            }).mount();
         });
     </script>
 }

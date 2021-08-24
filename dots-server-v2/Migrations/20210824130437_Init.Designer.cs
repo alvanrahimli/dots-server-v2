@@ -10,8 +10,8 @@ using dots_server_v2.Data;
 namespace dots_server_v2.Migrations
 {
     [DbContext(typeof(DotsContext))]
-    [Migration("20210823193018_Initial")]
-    partial class Initial
+    [Migration("20210824130437_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,20 +108,18 @@ namespace dots_server_v2.Migrations
 
             modelBuilder.Entity("dots_server_v2.Models.Screenshot", b =>
                 {
-                    b.Property<Guid>("Name")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("text");
 
-                    b.Property<int>("PackageId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("PackageName")
                         .HasColumnType("text");
 
-                    b.HasKey("Name");
+                    b.HasKey("Id");
 
                     b.HasIndex("PackageName");
 

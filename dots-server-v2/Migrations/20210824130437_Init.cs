@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace dots_server_v2.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -88,14 +88,14 @@ namespace dots_server_v2.Migrations
                 name: "Screenshots",
                 columns: table => new
                 {
-                    Name = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ImagePath = table.Column<string>(type: "text", nullable: true),
-                    PackageId = table.Column<int>(type: "integer", nullable: false),
                     PackageName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Screenshots", x => x.Name);
+                    table.PrimaryKey("PK_Screenshots", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Screenshots_Packages_PackageName",
                         column: x => x.PackageName,
